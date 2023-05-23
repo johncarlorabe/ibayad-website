@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+.ib-font-regular{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+}
+.ib-font-semibold{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+}
+.ib-font-medium{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+}
+.ib-font-bold{
+    font-family: 'Nunito Sans',sans-serif;
+    font-weight: 700;
+}
+.ib-font-extrabold{
+    font-family: 'Nunito Sans',sans-serif;
+    font-weight: 800;
+}
+
+body{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+}
+strong{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 800;
+}
+.btn-ib-main{
+    font-weight: bold;
+    background: rgb(238,9,121);
+    background: linear-gradient(117deg, rgba(238,9,121,1) 0%, rgba(255,106,0,1) 99%);
+    color: #ffffff;
+    border-radius: 2px;
+    background-size: 150% 100%;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.btn-ib-main:hover{
+    background-position: 100% 0;
+    color: #ffffff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.ib-landing-heading{
+    background: linear-gradient(117deg, rgba(5,117,230,1) 0%, rgba(2,27,121,1) 99%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ib-landing-hr{
+    border:none;
+    background-image: linear-gradient(117deg, rgba(238,9,121,1) 0%, rgba(255,106,0,1) 99%);
+    opacity: 1;
+    width: 20%;
+    height: 5px;
+
+}
+
+
+
+.ib-landing-bg-red{
+    background: rgb(203,45,62);
+    background: linear-gradient(113deg, rgba(203,45,62,1) 0%, rgba(239,71,58,1) 99%);
+}
+
+.ib-landing-bg-dark{
+    background: rgb(96,108,136);
+    background: linear-gradient(281deg, rgba(96,108,136,1) 0%, rgba(63,76,107,1) 99%);
+}
+
+.ib-landing-bg-light{
+    background: rgb(236,239,241);
+    background: linear-gradient(113deg, rgba(236,239,241,1) 0%, rgba(229,231,232,1) 99%);
+}
+
+.ib-landing-bg-blue{
+    background-color: #0277BD;
+}
+
+.ib-card{
+    border-radius: 2px;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.ib-card:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.ib-link{
+    color: rgba(234,56,77,1);
+    text-decoration: none;
+}
+.ib-shadow{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.ib-card-img-top-radius{
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+
+    transition: background-position .3s ease;
+}
+
+
+.multi-color-border {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.multi-color-border::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-image: linear-gradient(to right, red, blue, yellow);
+}
+
+.ib-form-control-light{
+    border-radius: 2px;
+    background: rgba(78, 87, 96, 1);
+    border:none;
+    color: #ffffff;
+    transition: box-shadow .3s
+}
+
+
+.ib-form-control-light:focus{
+    color: #ffffff;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background: rgba(78, 87, 96, 1);
+}
+
+.ib-link-secondary{
+    color: #6C757D;
+    transition: color .3s, shadow .3s;
+}
+
+.ib-link-secondary:hover{
+    color: #ffffff;
+}

@@ -1,0 +1,67 @@
+svg{
+    margin-top:-1px;
+}
+.custom-shape-divider-top-1684836416 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1684836416 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 109px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1684836416 .shape-fill {
+    fill: #FFFFFF;
+}
+
+
+.custom-shape-divider-bottom-1684836437 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1684836437 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 109px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1684836437 .shape-fill {
+    fill: #FFFFFF;
+}
+
+.custom-shape-divider-top-1684836731 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1684836731 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 105px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1684836731 .shape-fill {
+    fill: #FFFFFF;
+}
