@@ -6,11 +6,16 @@
     <title>iBayad Online Ventures</title>
     <link href="../assets/thirdparty/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/thirdparty/bootstrap-icons-1.9.1/bootstrap-icons.css" rel="stylesheet">
-    <link href="../assets/local/css/ibayad-styling.css" rel="stylesheet">
+    <link href="../assets/local/css/ib-styling.css" rel="stylesheet">
     <link href="../assets/local/css/hover-animations.css" rel="stylesheet">
-    <link href="../assets/local/css/svg-dividers.css" rel="stylesheet">
+    <link href="../assets/local/css/ib-svg-dividers.css" rel="stylesheet">
+    <!--    Added for TestillateJs-->
     <link href="../assets/thirdparty/animate.css" rel="stylesheet">
-    <link href="../assets/local/css/logo-carousel.css" rel="stylesheet">
+    <!--    -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="../assets/local/css/ib-logo-carousel.css" rel="stylesheet">
+    <link href="../assets/local/css/ib-splide-carousel.css" rel="stylesheet">
+    <link href="../assets/thirdparty/splide-4.1.3/dist/css/splide-core.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo/ib-logo-only-white.png">
 
     <script src="../assets/thirdparty/jquery-3.7.0.min.js"></script>
@@ -18,35 +23,108 @@
     <script src="../assets/thirdparty/jquery.lettering.js"></script>
     <script src="../assets/thirdparty/jquery.textillate.js"></script>
     <script src="../assets/thirdparty/isotope.pkgd.min.js"></script>
+
+    <script src="../assets/thirdparty/imakewebthings-waypoints-34d9f6d/lib/noframework.waypoints.min.js"></script>
+    <script src="../assets/thirdparty/splide-4.1.3/dist/js/splide.min.js"></script>
 </head>
 <body class="body-bg" style="overflow-x:hidden">
 <script type="application/javascript">
+    var headings = '[{"index":0,"header":"[Meaningful] Financial Innovation","subheader":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},{"index":1,"header":"[Connecting] Everyone Financially","subheader":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},{"index":2,"header":"[Creating] a Better Medium of Exchange","subheader":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},{"index":3,"header":"[Efficient] Transactions","subheader":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},{"index":4,"header":"[Empowering] All Merchants","subheader":"Empowering all merchants with technology that will enable them to benefit from the efficiency of mobile and electronic transactions"},{"index":5,"header":"[Relieving] Customer Pain Points","subheader":"Relieving customer pain points in today\'s cumbersome, cash-centric environment"},{"index":6,"header":"[Aiding] Banks and Financial Institutions","subheader":"Aiding banks and financial institutions in their financial inclusion efforts to deliver services to the unbanked and underbanked sector of society"},{"index":7,"header":"[Assisting] Mobile Telecommunications Companies","subheader":"Assisting Mobile Telecommunications Companies and Electronic Money Operators that aim to provide meaningful and effective value added services to their subscribers"}]';
+    var defaultHeader = '<strong class="tlt" style="font-style: italic"><i>Transforming</i></strong> the way you pay';
+    var defaultSubheader = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+    $(document).ready(function() {
+        $("#mainTxt").html(defaultHeader);
+        $("#subTxt").html(defaultSubheader);
+        initTextillate();
 
+        //products div animation
+        var waypointProducts = new Waypoint({
+            element: document.getElementById('waypoint-products'),
+            handler: function (direction) {
+                $("#waypoint-products").show();
+                if(direction=="down"){
+                    $("#divProducts").addClass("animate__animated animate__slideInLeft");
+                    $("#divProductsList").addClass("animate__animated animate__fadeInUp");
+                    $("#hr-products").addClass("animate__animated animate__fadeInLeft animate__slow");
+                } else {
+                    $("#divProducts").removeClass("animate__animated animate__slideInLeft");
+                    $("#divProductsList").removeClass("animate__animated animate__fadeInUp");
+                    $("#hr-products").removeClass("animate__animated animate__fadeInLeft animate__slow");
+                }
 
-    $(document).ready(function(){
-        $('.tlt').textillate({
-            loop:true,
-            initialDelay:200,
-            in: { effect: 'pulse', shuffle: true, delay: 50  } ,
-            out: {effect: 'pulse', shuffle: true, delay: 500}
-        });
-
-        $('.ib-card-hover').hover(
-            function() {
-                $('.product-hvr-target').addClass('hvr-forward');
             },
-            function() {
-                $('.product-hvr-target').removeClass('hvr-forward');
-            }
-        );
-
-        $('.grid').isotope({
-            // options
-            itemSelector: '.grid-item',
-            layoutMode: 'fitRows'
+            offset:'80%'
         });
-    });
 
+        //partners div animation
+        var waypointPartners = new Waypoint({
+            element: document.getElementById('waypoint-partners'),
+            handler: function (direction) {
+                if(direction=="down"){
+                    $("#waypoint-partners").addClass("animate__animated animate__fadeIn");
+                } else {
+                    $("#waypoint-partners").removeClass("animate__animated animate__fadeIn");
+                }
+            },
+            offset:'85%'
+        });
+
+
+        var splide = new Splide( '.splide',{
+            interval:8000,
+            heightRatio:.5,
+            autoplay: true,
+            arrows: false,
+            wheel: true,
+            releaseWheel: true,
+            direction: 'ttb',
+            snap: true,
+            perPage: 1,
+            focus: 0,
+            perMove: 1,
+            pagination: false,
+            flickMaxPages: 1,
+            pauseOnHover: true,
+            waitForTransition: true,
+            rewind: true
+
+        } );
+        splide.mount();
+
+        splide.on( 'move', function (newIndex,prevIndex,destIndex) {
+            updateHeader(newIndex);
+            $(".carousel-img").removeClass("zoom-out-image");
+            $(".splide__slide:eq("+newIndex+") > img").addClass("zoom-out-image");
+        });
+
+        function updateHeader(index){
+            if(index !== 0){
+                let json = JSON.parse(headings);
+                var headerObject = json.find(function(obj) {
+                    return obj.index === index;
+                });
+                let mainTxt = headerObject.header.replace('[','<strong class="tlt" style="font-style: italic">').replace(']','</strong>');
+                mainTxt = mainTxt.replace('(','<u>').replace(')','</u>');
+                $("#mainTxt").html(headerObject?mainTxt:defaultHeader);
+                $("#subTxt").html(headerObject?headerObject.subheader:defaultSubheader);
+
+                initTextillate();
+            } else {
+                $("#mainTxt").html(defaultHeader);
+                $("#subTxt").html(defaultSubheader);
+                initTextillate();
+            }
+        }
+
+        function initTextillate(){
+            $('.tlt').textillate({
+                loop: true,
+                initialDelay: 200,
+                in: {effect: 'pulse', shuffle: true, delay: 50},
+                out: {effect: 'pulse', shuffle: true, delay: 50}
+            });
+        }
+    });
 
 </script>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent">
@@ -59,16 +137,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent"> <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item hvr-underline-from-center">
-                    <a class="nav-link" aria-current="page" href="#">Products</a>
+                    <a class="nav-link" aria-current="page" href="#divProducts">Products</a>
                 </li>
                 <li class="nav-item hvr-underline-from-center">
-                    <a class="nav-link" href="#">Partners</a>
+                    <a class="nav-link" href="#divPartners">Partners</a>
                 </li>
                 <li class="nav-item hvr-underline-from-center">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#divCompany">Our company</a>
                 </li>
                 <li class="nav-item hvr-underline-from-center">
-                    <a class="nav-link" href="#">Our company</a>
+                    <a class="nav-link" href="#divContact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -78,21 +156,39 @@
     <div class="row d-flex h-100">
         <div class="col-md-5 text-white d-flex px-5" style="height: 90vh">
             <div class="row align-self-center mb-5 pb-5">
-                <h1 class="text-black ib-font-semibold"><strong class="tlt" style="font-style: italic"><i>Transform</i></strong> the way you pay</h1>
-                <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <div class="col">
-                    <button type="button" class="btn btn-ib-main hvr-icon-forward">Learn more <i class="bi bi-arrow-right hvr-icon"></i></button>
+                <h1 id="mainTxt" class="text-black ib-font-semibold"></h1>
+                <p id="subTxt" class="text-secondary"></p>
+                <div class="col mt-2">
+                    <a type="button" href="#divProducts" class="btn btn-ib-main hvr-forward">Learn more <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
         </div>
-        <div class="col-md-7 d-none d-sm-block">
-            <div class="row justify-content-center">
-                <img src="../assets/images/page/landing.jpg" class="img-fluid" alt="...">
+        <div class="col-md-7 d-flex">
+            <div class="row align-self-center justify-content-center px-5 w-100">
+                <div class="splide" role="group" aria-label="Splide Basic HTML Example">
+                    <div class="splide__track rounded-5 ib-shadow">
+                        <ul class="splide__list">
+                            <li class="splide__slide"><img class="img-fluid carousel-img zoom-out-image" src="../assets/images/carousel/Woman-Smiling.jpg"></li>
+                            <li class="splide__slide"><img class="img-fluid carousel-img" src="../assets/images/carousel/Hand-Mobile-Phone.jpg"></li>
+                            <li class="splide__slide"><img class="img-fluid carousel-img" src="../assets/images/carousel/Mobile-Credit-Card-Payment-2.jpg"></li>
+                            <li class="splide__slide"><img class="img-fluid carousel-img" src="../assets/images/carousel/Woman-Phone-Sofa.jpg"></li>
+                            <li class="splide__slide"><img class="img-fluid carousel-img" src="../assets/images/carousel/Woman-Merchant.jpg"></li>
+                            <li class="splide__slide"><img class="img-fluid carousel-img" src="../assets/images/carousel/JolliJeep.jpg"></li>
+                            <li class="splide__slide"><img class="img-fluid carousel-img" src="../assets/images/carousel/Hand-Bank-Exchange.jpg"></li>
+                            <li class="splide__slide"><img class="img-fluid carousel-img" src="../assets/images/carousel/Telecommunications-Towers.jpg"></li>
+                        </ul>
+                    </div>
+                    <div class="splide__progress mx-5 mt-4">
+                        <div class="splide__progress__bar">
+                        </div>
+                    </div>
+                </div>
+<!--                <img src="../assets/images/page/landing.jpg" class="img-fluid" alt="...">-->
             </div>
         </div>
     </div>
 </div>
-<div class="row h-100 bg-dark" style="position: relative;">
+<div class="row h-100 bg-dark" style="position: relative;display: none" id="waypoint-products">
     <div class="row">
         <div class="custom-shape-divider-top-1684836416">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -100,28 +196,28 @@
             </svg>
         </div>
         <div class="px-0" style="min-height: 150px"></div>
-        <div class="col-md-3 bg-dark py-5 d-flex align-items-center">
+        <div class="col-md-3 bg-dark py-5 d-flex align-items-center animated-product" id="divProducts">
             <div class="row mx-3 px-3">
                 <h1 class="text-light ib-font-extrabold">Products</h1>
-                <hr class="ib-landing-hr">
+                <hr class="ib-landing-hr" id="hr-products">
                 <p class="text-light fs-5 mt-3">We intend to specifically cater to emerging markets, primarily in the Philippines but also other countries in the South East Asian region,<br>with a focus on the development and distribution of <strong>solb!</strong>, <strong>miLine</strong>, <strong>ElecTraNet Mgr MkII</strong></p>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9" id="divProductsList">
             <div class="row d-flex justify-content-between d-grid align-items-stretch py-5 px-5">
-                <div class="col card mb-3 mx-3 px-0 ib-card ib-card-hover">
+                <div class="col card mb-3 mx-3 px-0 ib-card ib-card-hover hvr-float hvr-outline-out">
                     <div class="ib-card-img-top-radius" style="background: url('../assets/images/products/solb.jpg')">
-                        <img src="../assets/images/products/solb-logo-200x200.png" class="product-hvr-target img-thumbnail rounded-circle my-3 ms-2 w-25 ib-shadow" alt="...">
+                        <img src="../assets/images/products/solb-logo-200x200.png" class="img-thumbnail rounded-circle my-3 ms-2 w-25 ib-shadow" alt="...">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title mt-3"><strong>solb!</strong></h5>
                         <p class="card-text text-start">An app based mobile point of sale (mPOS) and payment facilitating solution that utilizes the Philippines first, Bancnet approved, mobile card reader. solb! empowers ANY merchant, whether business or individual entrepreneur, with the ability to accept bank ATM cards, credit cards, debit cards, loyalty cards or any other type of card payment, any time, anywhere.</p>
                     </div>
                     <div class="card-footer bg-white border-top-0 mb-2">
-                        <a class="product-hvr-target ib-link ib-font-bold" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
+                        <a class="ib-link ib-font-bold hvr-forward" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
                     </div>
                 </div>
-                <div class="col card mb-3 mx-3 px-0 ib-card">
+                <div class="col card mb-3 mx-3 px-0 ib-card hvr-float hvr-outline-out">
                     <div class="ib-card-img-top-radius" style="background: url('../assets/images/products/miline.jpg')">
                         <img src="../assets/images/products/miLine-logo-200x200.png" class="img-thumbnail rounded-circle my-3 ms-2 w-25 ib-shadow" alt="...">
                     </div>
@@ -130,10 +226,10 @@
                         <p class="card-text text-start">A mobile app and web based platform which gives access to an online ecosystem of products and services. miLine enables migrant workers to cost-effectively communicate and conveniently support and take care of their families and other beneficiaries needs, in their respective home countries.</p>
                     </div>
                     <div class="card-footer bg-white border-top-0 mb-2">
-                        <a class="product-hvr-target ib-link ib-font-bold" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
+                        <a class="ib-link ib-font-bold hvr-forward" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
                     </div>
                 </div>
-                <div class="col card mb-3 mx-3 px-0 ib-card">
+                <div class="col card mb-3 mx-3 px-0 ib-card hvr-float hvr-outline-out">
                     <div class="ib-card-img-top-radius" style="background: url('../assets/images/products/electra.jpg')">
                         <img src="../assets/images/products/ElecTraNet-logo-200x200.png" class="img-thumbnail rounded-circle my-3 ms-2 w-25 ib-shadow" alt="...">
                     </div>
@@ -142,7 +238,7 @@
                         <p class="card-text text-start">Electronic Transaction Network Manager is an infinitely flexible, mobile-optimized, multi-platform e-commerce solution. It is a powerful tool that gives enterprise users complete control over a multitude of financial transactions; a multi-pocket e-wallet, banking services, payment processing, electronic vouchers, and a loyalty rewards program all in one single, modular-designed platform.</p>
                     </div>
                     <div class="card-footer bg-white border-top-0 mb-2">
-                        <a class="product-hvr-target ib-link ib-font-bold" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
+                        <a class="ib-link ib-font-bold hvr-forward" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
                     </div>
                 </div>
             </div>
@@ -156,13 +252,13 @@
     </div>
 
 </div>
-<div class="col-12" >
+<div class="col-12" id="divPartners">
 <div class="row text-center">
-    <h1 class="text-dark ib-font-extrabold">Partners</h1>
+    <h1 class="ib-landing-heading ib-font-extrabold mt-5">Partners</h1>
     <p class="text-dark">Lorem ipsum dolor sit amet</p>
 </div>
 <div class="row border-5">
-<div class="container rounded-4 ib-landing-bg-blue pt-4" style="width: 85%">
+<div class="container rounded-4 ib-landing-bg-blue pt-4 ib-shadow" id="waypoint-partners" style="width: 85%;">
 <div class="slider my-1">
     <div class="slide-track-1">
         <div class="slide">
@@ -386,18 +482,18 @@
 </div>
 <div class="row multi-color-border ib-landing-bg-light" style="position: relative">
     <div class="px-0" style="min-height: 100px"></div>
-    <div class="custom-shape-divider-top-1684836731">
+    <div class="custom-shape-divider-top-1684910678">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+            <path d="M649.97 0L599.91 54.12 550.03 0 0 0 0 120 1200 120 1200 0 649.97 0z" class="shape-fill"></path>
         </svg>
     </div>
-    <div class="row py-5 h-100 ">
+    <div class="row py-5 h-100 " id="divCompany">
         <div class="col-4">
             <div class="row justify-content-center">
                 <img src="../assets/images/logo/ibayad-logo.png" class="img-fluid w-50" alt="...">
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-8" >
             <div class="row">
                 <div class="container px-5">
                     <h1>Our <strong><i>Company</i></strong></h1>
@@ -412,10 +508,11 @@
         </div>
     </div>
 </div>
+
 <footer class="footer bg-dark">
     <div class="container-fluid pt-5">
         <div class="row px-5">
-            <div class="col-md-4 mt-3">
+            <div class="col-md-4 mt-3" id="divContact">
                 <p class="text-light">
                     <strong>We want to hear from you!</strong><br>
                     Feel free to contact us with the form below

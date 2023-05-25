@@ -45,23 +45,24 @@ svg{
     fill: #FFFFFF;
 }
 
-.custom-shape-divider-top-1684836731 {
+
+.custom-shape-divider-top-1684910678 {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
+    transform: rotate(180deg);
 }
 
-.custom-shape-divider-top-1684836731 svg {
+.custom-shape-divider-top-1684910678 svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 105px;
-    transform: rotateY(180deg);
+    height: 72px;
 }
 
-.custom-shape-divider-top-1684836731 .shape-fill {
+.custom-shape-divider-top-1684910678 .shape-fill {
     fill: #FFFFFF;
 }
