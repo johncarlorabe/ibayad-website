@@ -21,6 +21,10 @@
     font-weight: 800;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body{
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
@@ -83,14 +87,18 @@ strong{
     background-color: #0277BD;
 }
 
-.ib-card{
+.ib-landing-bg-partners{
+    background-color: #E3F2FD
+}
+
+.ib-card-landing{
     border-radius: 2px;
 
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.ib-card:hover{
+.ib-card-landing:hover{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
@@ -151,4 +159,76 @@ strong{
 
 .ib-link-secondary:hover{
     color: #ffffff;
+}
+
+
+
+/*Buttons*/
+.btn-learn-more {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+}
+
+.btn-learn-more:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 30px;
+    background: #FFEBEE;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+}
+
+.btn-learn-more span {
+    position: relative;
+    font-weight: 800;
+    font-family: 'Nunito Sans',sans-serif;
+    color: #E53935;
+}
+
+.btn-learn-more svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #E53935;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.btn-learn-more:hover:before {
+    width: 100%;
+    background: #FFEBEE;
+}
+
+.btn-learn-more:hover svg {
+    transform: translateX(0);
+}
+
+.btn-learn-more:active {
+    transform: scale(0.95);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
+
+/*Media Queries*/
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
 }

@@ -8,6 +8,8 @@ svg{
     width: 100%;
     overflow: hidden;
     line-height: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .custom-shape-divider-top-1684836416 svg {
@@ -23,7 +25,7 @@ svg{
 }
 
 
-.custom-shape-divider-bottom-1684836437 {
+.custom-shape-divider-bottom-1685080111 {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -33,36 +35,36 @@ svg{
     transform: rotate(180deg);
 }
 
-.custom-shape-divider-bottom-1684836437 svg {
+.custom-shape-divider-bottom-1685080111 svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 109px;
+    height: 122px;
     transform: rotateY(180deg);
 }
 
-.custom-shape-divider-bottom-1684836437 .shape-fill {
-    fill: #FFFFFF;
+.custom-shape-divider-bottom-1685080111 .shape-fill {
+    fill: #E3F2FD;
 }
 
 
-.custom-shape-divider-top-1684910678 {
+.custom-shape-divider-top-1685080178 {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
-    transform: rotate(180deg);
 }
 
-.custom-shape-divider-top-1684910678 svg {
+.custom-shape-divider-top-1685080178 svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 72px;
+    height: 122px;
+    transform: rotateY(180deg);
 }
 
-.custom-shape-divider-top-1684910678 .shape-fill {
-    fill: #FFFFFF;
+.custom-shape-divider-top-1685080178 .shape-fill {
+    fill: #E3F2FD;
 }

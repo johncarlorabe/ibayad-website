@@ -12,9 +12,10 @@
     <!--    Added for TestillateJs-->
     <link href="../assets/thirdparty/animate.css" rel="stylesheet">
     <!--    -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="../assets/thirdparty/animate-v4.1.1.css" rel="stylesheet">
     <link href="../assets/local/css/ib-logo-carousel.css" rel="stylesheet">
     <link href="../assets/local/css/ib-splide-carousel.css" rel="stylesheet">
+    <link href="../assets/local/css/ib-navbar-toggle.css" rel="stylesheet">
     <link href="../assets/thirdparty/splide-4.1.3/dist/css/splide-core.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo/ib-logo-only-white.png">
 
@@ -26,8 +27,18 @@
 
     <script src="../assets/thirdparty/imakewebthings-waypoints-34d9f6d/lib/noframework.waypoints.min.js"></script>
     <script src="../assets/thirdparty/splide-4.1.3/dist/js/splide.min.js"></script>
+    <style>
+        #divMain{
+            background-image: url('../assets/images/objects/polygon-scatter-haikei.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+
+    </style>
 </head>
-<body class="body-bg" style="overflow-x:hidden">
+<body class="body-bg">
 <script type="application/javascript">
     var headings = '[{"index":0,"header":"[Meaningful] Financial Innovation","subheader":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},{"index":1,"header":"[Connecting] Everyone Financially","subheader":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},{"index":2,"header":"[Creating] a Better Medium of Exchange","subheader":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},{"index":3,"header":"[Efficient] Transactions","subheader":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},{"index":4,"header":"[Empowering] All Merchants","subheader":"Empowering all merchants with technology that will enable them to benefit from the efficiency of mobile and electronic transactions"},{"index":5,"header":"[Relieving] Customer Pain Points","subheader":"Relieving customer pain points in today\'s cumbersome, cash-centric environment"},{"index":6,"header":"[Aiding] Banks and Financial Institutions","subheader":"Aiding banks and financial institutions in their financial inclusion efforts to deliver services to the unbanked and underbanked sector of society"},{"index":7,"header":"[Assisting] Mobile Telecommunications Companies","subheader":"Assisting Mobile Telecommunications Companies and Electronic Money Operators that aim to provide meaningful and effective value added services to their subscribers"}]';
     var defaultHeader = '<strong class="tlt" style="font-style: italic"><i>Transforming</i></strong> the way you pay';
@@ -103,7 +114,7 @@
                 var headerObject = json.find(function(obj) {
                     return obj.index === index;
                 });
-                let mainTxt = headerObject.header.replace('[','<strong class="tlt" style="font-style: italic">').replace(']','</strong>');
+                let mainTxt = headerObject.header.replace('[','<strong class="tlt" style="font-style: italic;">').replace(']','</strong>');
                 mainTxt = mainTxt.replace('(','<u>').replace(')','</u>');
                 $("#mainTxt").html(headerObject?mainTxt:defaultHeader);
                 $("#subTxt").html(headerObject?headerObject.subheader:defaultSubheader);
@@ -124,16 +135,35 @@
                 out: {effect: 'pulse', shuffle: true, delay: 50}
             });
         }
+
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        $('#back-to-top').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        });
     });
 
 </script>
+
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent">
     <div class="container-fluid">
-        <a class="navbar-brand px-2" href="#">
+        <a class="navbar-brand px-2" href="landing.php">
             <img src="../assets/images/logo/ib-logo-w-text-black.png" alt="Bootstrap" height="45">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler border-0 d-flex d-lg-none flex-column justify-content-around collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="toggler-icon top-bar"></span>
+            <span class="toggler-icon middle-bar"></span>
+            <span class="toggler-icon bottom-bar"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent"> <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item hvr-underline-from-center">
@@ -143,7 +173,7 @@
                     <a class="nav-link" href="#divPartners">Partners</a>
                 </li>
                 <li class="nav-item hvr-underline-from-center">
-                    <a class="nav-link" href="#divCompany">Our company</a>
+                    <a class="nav-link" href="#divCompany">Our Company</a>
                 </li>
                 <li class="nav-item hvr-underline-from-center">
                     <a class="nav-link" href="#divContact">Contact</a>
@@ -154,17 +184,28 @@
 </nav>
 <div class="container-fluid">
     <div class="row d-flex h-100">
-        <div class="col-md-5 text-white d-flex px-5" style="height: 90vh">
-            <div class="row align-self-center mb-5 pb-5">
+        <div class="px-0 d-none d-sm-block" style="min-height: 100px"></div>
+        <div class="px-0 d-block d-sm-none" style="min-height: 50px"></div>
+        <div class="col-md-5 text-white d-flex px-5">
+            <div class="row align-self-center pb-5">
                 <h1 id="mainTxt" class="text-black ib-font-semibold"></h1>
                 <p id="subTxt" class="text-secondary"></p>
                 <div class="col mt-2">
-                    <a type="button" href="#divProducts" class="btn btn-ib-main hvr-forward">Learn more <i class="bi bi-arrow-right"></i></a>
+                    <a class="ib-link btn-learn-more"  href="#divProducts">
+                        <span>Learn More</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+<!--                    <a type="button" href="#divProducts" class="btn btn-ib-main hvr-forward">Learn more <i class="bi bi-arrow-right"></i></a>-->
                 </div>
             </div>
         </div>
         <div class="col-md-7 d-flex">
-            <div class="row align-self-center justify-content-center px-5 w-100">
+            <div class="ib-img-objects d-none d-md-block" style="opacity: .1"><img src="../assets/images/objects/polygon-scatter-haikei-red-outline.svg" style="width: 35%;height: auto;position: absolute;top:100px;right:0;z-index: 10"></div>
+            <div class="ib-img-objects d-none d-md-block" style="opacity: .1"><img src="../assets/images/objects/polygon-scatter-haikei-blue-2.svg" style="width: 35%;height: auto;position: absolute;bottom:50px;right:450px;z-index: 10"></div>
+            <div class="row align-self-center justify-content-center mx-md-5 mx-2">
                 <div class="splide" role="group" aria-label="Splide Basic HTML Example">
                     <div class="splide__track rounded-5 ib-shadow">
                         <ul class="splide__list">
@@ -186,293 +227,308 @@
 <!--                <img src="../assets/images/page/landing.jpg" class="img-fluid" alt="...">-->
             </div>
         </div>
+        <div class="ib-img-objects d-none d-md-block" style="opacity: .3"><img src="../assets/images/objects/polygon-scatter-haikei-red.svg" style="width: 10%;height: auto;position: absolute;bottom: 20px;z-index: 10;"></div>
+        <div class="ib-img-objects d-none d-md-block" style="opacity: .1"><img src="../assets/images/objects/polygon-scatter-haikei-blue.svg" style="width: 15%;height: auto;position: absolute;bottom: 35px;left:70px"></div>
+        <div class="ib-img-objects d-none d-md-block" style="opacity: .2"><img src="../assets/images/objects/polygon-scatter-haikei-yellow.svg" style="width: 20%;height: auto;position: absolute;bottom: 60px;left: 5px"></div>
+        <div class="px-0" style="min-height: 150px"></div>
     </div>
 </div>
 <div class="row h-100 bg-dark" style="position: relative;display: none" id="waypoint-products">
-    <div class="row">
-        <div class="custom-shape-divider-top-1684836416">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
-            </svg>
-        </div>
-        <div class="px-0" style="min-height: 150px"></div>
-        <div class="col-md-3 bg-dark py-5 d-flex align-items-center animated-product" id="divProducts">
-            <div class="row mx-3 px-3">
-                <h1 class="text-light ib-font-extrabold">Products</h1>
-                <hr class="ib-landing-hr" id="hr-products">
-                <p class="text-light fs-5 mt-3">We intend to specifically cater to emerging markets, primarily in the Philippines but also other countries in the South East Asian region,<br>with a focus on the development and distribution of <strong>solb!</strong>, <strong>miLine</strong>, <strong>ElecTraNet Mgr MkII</strong></p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="custom-shape-divider-top-1684836416">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+                </svg>
             </div>
-        </div>
-        <div class="col-md-9" id="divProductsList">
-            <div class="row d-flex justify-content-between d-grid align-items-stretch py-5 px-5">
-                <div class="col card mb-3 mx-3 px-0 ib-card ib-card-hover hvr-float hvr-outline-out">
-                    <div class="ib-card-img-top-radius" style="background: url('../assets/images/products/solb.jpg')">
-                        <img src="../assets/images/products/solb-logo-200x200.png" class="img-thumbnail rounded-circle my-3 ms-2 w-25 ib-shadow" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title mt-3"><strong>solb!</strong></h5>
-                        <p class="card-text text-start">An app based mobile point of sale (mPOS) and payment facilitating solution that utilizes the Philippines first, Bancnet approved, mobile card reader. solb! empowers ANY merchant, whether business or individual entrepreneur, with the ability to accept bank ATM cards, credit cards, debit cards, loyalty cards or any other type of card payment, any time, anywhere.</p>
-                    </div>
-                    <div class="card-footer bg-white border-top-0 mb-2">
-                        <a class="ib-link ib-font-bold hvr-forward" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
-                    </div>
-                </div>
-                <div class="col card mb-3 mx-3 px-0 ib-card hvr-float hvr-outline-out">
-                    <div class="ib-card-img-top-radius" style="background: url('../assets/images/products/miline.jpg')">
-                        <img src="../assets/images/products/miLine-logo-200x200.png" class="img-thumbnail rounded-circle my-3 ms-2 w-25 ib-shadow" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title mt-3"><strong>miLine</strong></h5>
-                        <p class="card-text text-start">A mobile app and web based platform which gives access to an online ecosystem of products and services. miLine enables migrant workers to cost-effectively communicate and conveniently support and take care of their families and other beneficiaries needs, in their respective home countries.</p>
-                    </div>
-                    <div class="card-footer bg-white border-top-0 mb-2">
-                        <a class="ib-link ib-font-bold hvr-forward" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
-                    </div>
-                </div>
-                <div class="col card mb-3 mx-3 px-0 ib-card hvr-float hvr-outline-out">
-                    <div class="ib-card-img-top-radius" style="background: url('../assets/images/products/electra.jpg')">
-                        <img src="../assets/images/products/ElecTraNet-logo-200x200.png" class="img-thumbnail rounded-circle my-3 ms-2 w-25 ib-shadow" alt="...">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title mt-3"><strong>ElecTraNet Mgr MkII</strong></h5>
-                        <p class="card-text text-start">Electronic Transaction Network Manager is an infinitely flexible, mobile-optimized, multi-platform e-commerce solution. It is a powerful tool that gives enterprise users complete control over a multitude of financial transactions; a multi-pocket e-wallet, banking services, payment processing, electronic vouchers, and a loyalty rewards program all in one single, modular-designed platform.</p>
-                    </div>
-                    <div class="card-footer bg-white border-top-0 mb-2">
-                        <a class="ib-link ib-font-bold hvr-forward" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
-                    </div>
+            <div class="px-0" style="min-height: 150px"></div>
+            <div class="col-md-3 bg-dark py-5 d-flex align-items-center animated-product" id="divProducts">
+                <div class="row mx-3 px-3">
+                    <h1 class="text-light ib-font-extrabold">Products</h1>
+                    <div class="col-md-12"> <hr class="ib-landing-hr" id="hr-products"></div>
+                    <p class="text-light fs-5 mt-3">We intend to specifically cater to emerging markets, primarily in the Philippines but also other countries in the South East Asian region,<br>with a focus on the development and distribution of <strong>solb!</strong>, <strong>miLine</strong>, <strong>ElecTraNet Mgr MkII</strong></p>
                 </div>
             </div>
-        </div>
-        <div class="px-0" style="min-height: 150px"></div>
-        <div class="custom-shape-divider-bottom-1684836437">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
-            </svg>
+            <div class="col-md-9" id="divProductsList">
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-around py-5 px-3">
+                        <div class="col-xs-12 col-md-4 d-flex align-items-stretch">
+                            <div class="card card mb-3 px-0 ib-card-landing ib-card-hover hvr-float hvr-outline-out">
+                                <div class="ib-card-img-top-radius" style="background: url('../assets/images/products/solb.jpg')">
+                                    <img src="../assets/images/products/solb-logo-200x200.png" class="img-thumbnail rounded-circle my-3 ms-2 w-25 ib-shadow" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mt-3"><strong>solb!</strong></h5>
+                                    <p class="card-text text-start">An app based mobile point of sale (mPOS) and payment facilitating solution that utilizes the Philippines first, Bancnet approved, mobile card reader. solb! empowers ANY merchant, whether business or individual entrepreneur, with the ability to accept bank ATM cards, credit cards, debit cards, loyalty cards or any other type of card payment, any time, anywhere.</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0 mb-2">
+                                    <a class="ib-link ib-font-bold hvr-forward" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-md-4 d-flex align-items-stretch">
+                            <div class="card mb-3 px-0 ib-card-landing hvr-float hvr-outline-out">
+                                <div class="ib-card-img-top-radius" style="background: url('../assets/images/products/miline.jpg')">
+                                    <img src="../assets/images/products/miLine-logo-200x200.png" class="img-thumbnail rounded-circle my-3 ms-2 w-25 ib-shadow" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mt-3"><strong>miLine</strong></h5>
+                                    <p class="card-text text-start">A mobile app and web based platform which gives access to an online ecosystem of products and services. miLine enables migrant workers to cost-effectively communicate and conveniently support and take care of their families and other beneficiaries needs, in their respective home countries.</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0 mb-2">
+                                    <a class="ib-link ib-font-bold hvr-forward" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 d-flex align-items-stretch">
+                            <div class="card mb-3 px-0 ib-card-landing hvr-float hvr-outline-out">
+                                <div class="ib-card-img-top-radius" style="background: url('../assets/images/products/electra.jpg')">
+                                    <img src="../assets/images/products/ElecTraNet-logo-200x200.png" class="img-thumbnail rounded-circle my-3 ms-2 w-25 ib-shadow" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title mt-3"><strong>ElecTraNet Mgr MkII</strong></h5>
+                                    <p class="card-text text-start">Electronic Transaction Network Manager is an infinitely flexible, mobile-optimized, multi-platform e-commerce solution. It is a powerful tool that gives enterprise users complete control over a multitude of financial transactions; a multi-pocket e-wallet, banking services, payment processing, electronic vouchers, and a loyalty rewards program all in one single, modular-designed platform.</p>
+                                </div>
+                                <div class="card-footer bg-white border-top-0 mb-2">
+                                    <a class="ib-link ib-font-bold hvr-forward" href="#" target="_blank">Learn More <i class="bi bi-arrow-right hvr-icon"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-0" style="min-height: 150px"></div>
+            <div class="custom-shape-divider-bottom-1685080111">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+                </svg>
+            </div>
         </div>
     </div>
 
 </div>
-<div class="col-12" id="divPartners">
+<div class="col-12 ib-landing-bg-partners" id="divPartners">
 <div class="row text-center">
-    <h1 class="ib-landing-heading ib-font-extrabold mt-5">Partners</h1>
-    <p class="text-dark">Lorem ipsum dolor sit amet</p>
+    <h1 class="ib-landing-heading ib-font-extrabold mt-5">Our Partners</h1>
+    <p class="text-dark fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam ultrices luctus. Mauris eu massa id ipsum suscipit ullamcorper.</p>
 </div>
 <div class="row border-5">
 <div class="container rounded-4 ib-landing-bg-blue pt-4 ib-shadow" id="waypoint-partners" style="width: 85%;">
 <div class="slider my-1">
     <div class="slide-track-1">
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-aim-global-300x150.jpg" alt="AIM Global" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-aim-global-300x150.jpg" alt="AIM Global" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-avon-300x150.jpg" alt="Avon" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-avon-300x150.jpg" alt="Avon" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-amazon-web-services-300x150.jpg" alt="Amazon Web Services" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-amazon-web-services-300x150.jpg" alt="Amazon Web Services" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-bancnet-300x150.jpg" alt="BancNet" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-bancnet-300x150.jpg" alt="BancNet" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-bayad-center-1-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-bayad-center-1-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-bpi-globe-banko-300x150.jpg" alt="BPI BanKo" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-bpi-globe-banko-300x150.jpg" alt="BPI BanKo" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-cutting-edge-300x150.jpg" alt="Cutting Edge" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-cutting-edge-300x150.jpg" alt="Cutting Edge" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-ecpay-300x150.jpg" alt="ECPay" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-ecpay-300x150.jpg" alt="ECPay" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-filmon-300x150.jpg" alt="Filmon" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-filmon-300x150.jpg" alt="Filmon" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-gametime-300x150.jpg" alt="Gametime" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-gametime-300x150.jpg" alt="Gametime" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-generika-300x150.jpg" alt="Generika" width="300" height="150" loading="lazy">
-        </div>
-
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-aim-global-300x150.jpg" alt="AIM Global" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-avon-300x150.jpg" alt="Avon" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-generika-300x150.jpg" alt="Generika" width="300" height="150" loading="lazy">
         </div>
 
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-amazon-web-services-300x150.jpg" alt="Amazon Web Services" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-aim-global-300x150.jpg" alt="AIM Global" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-bancnet-300x150.jpg" alt="BancNet" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-avon-300x150.jpg" alt="Avon" width="300" height="150" loading="lazy">
+        </div>
+
+        <div class="slide">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-amazon-web-services-300x150.jpg" alt="Amazon Web Services" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-bayad-center-1-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-bancnet-300x150.jpg" alt="BancNet" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-bpi-globe-banko-300x150.jpg" alt="BPI BanKo" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-bayad-center-1-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-cutting-edge-300x150.jpg" alt="Cutting Edge" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-bpi-globe-banko-300x150.jpg" alt="BPI BanKo" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-ecpay-300x150.jpg" alt="ECPay" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-cutting-edge-300x150.jpg" alt="Cutting Edge" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-filmon-300x150.jpg" alt="Filmon" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-ecpay-300x150.jpg" alt="ECPay" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-gametime-300x150.jpg" alt="Gametime" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-filmon-300x150.jpg" alt="Filmon" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-generika-300x150.jpg" alt="Generika" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-gametime-300x150.jpg" alt="Gametime" width="300" height="150" loading="lazy">
+        </div>
+        <div class="slide">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-generika-300x150.jpg" alt="Generika" width="300" height="150" loading="lazy">
         </div>
     </div>
 </div>
 <div class="slider my-1">
     <div class="slide-track-2">
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-ipc-300x150.jpg" alt="IPC" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-ipc-300x150.jpg" alt="IPC" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-ips-300x150.jpg" alt="IPS" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-ips-300x150.jpg" alt="IPS" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-manila-jockey-club-300x150.jpg" alt="Manila Jockey" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-manila-jockey-club-300x150.jpg" alt="Manila Jockey" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-mobeelity-300x150.jpg" alt="Mobeelity" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-mobeelity-300x150.jpg" alt="Mobeelity" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-mynt-300x150.jpg" alt="Mynt" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-mynt-300x150.jpg" alt="Mynt" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-nets-300x150.jpg" alt="Nets" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-nets-300x150.jpg" alt="Nets" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-nexmo-300x150.jpg" alt="Nexmo" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-nexmo-300x150.jpg" alt="Nexmo" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-paymaya-300x150.jpg" alt="Paymaya" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-paymaya-300x150.jpg" alt="Paymaya" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-paypal-300x150.jpg" alt="PayPal" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-paypal-300x150.jpg" alt="PayPal" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-paytyche-300x150.jpg" alt="Paytyche" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-paytyche-300x150.jpg" alt="Paytyche" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-philarp-300x150.jpg" alt="Philarp" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-philarp-300x150.jpg" alt="Philarp" width="300" height="150" loading="lazy">
         </div>
 
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-ipc-300x150.jpg" alt="IPC" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-ipc-300x150.jpg" alt="IPC" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-ips-300x150.jpg" alt="IPS" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-ips-300x150.jpg" alt="IPS" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-manila-jockey-club-300x150.jpg" alt="Manila Jockey" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-manila-jockey-club-300x150.jpg" alt="Manila Jockey" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-mobeelity-300x150.jpg" alt="Mobeelity" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-mobeelity-300x150.jpg" alt="Mobeelity" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-mynt-300x150.jpg" alt="Mynt" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-mynt-300x150.jpg" alt="Mynt" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-nets-300x150.jpg" alt="Nets" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-nets-300x150.jpg" alt="Nets" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-nexmo-300x150.jpg" alt="Nexmo" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-nexmo-300x150.jpg" alt="Nexmo" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-paymaya-300x150.jpg" alt="Paymaya" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-paymaya-300x150.jpg" alt="Paymaya" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-paypal-300x150.jpg" alt="PayPal" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-paypal-300x150.jpg" alt="PayPal" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-paytyche-300x150.jpg" alt="Paytyche" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-paytyche-300x150.jpg" alt="Paytyche" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-philarp-300x150.jpg" alt="Philarp" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-philarp-300x150.jpg" alt="Philarp" width="300" height="150" loading="lazy">
         </div>
     </div>
 </div>
 <div class="slider my-1">
     <div class="slide-track-1">
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-safenet-300x150.jpg" alt="Safenet" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-safenet-300x150.jpg" alt="Safenet" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-smart-300x150.jpg" alt="Smart" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-smart-300x150.jpg" alt="Smart" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-smart-pit-300x150.jpg" alt="Smart Pit" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-smart-pit-300x150.jpg" alt="Smart Pit" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-tara-nood-tayo-300x150.jpg" alt="Tara Nood Tayo" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-tara-nood-tayo-300x150.jpg" alt="Tara Nood Tayo" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-transferto-300x150.jpg" alt="Transfer To" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-transferto-300x150.jpg" alt="Transfer To" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-trufidelity-300x150.jpg" alt="Trufidelity" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-trufidelity-300x150.jpg" alt="Trufidelity" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-voip-switch-300x150.jpg" alt="Voip Switch" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-voip-switch-300x150.jpg" alt="Voip Switch" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-wazile-300x150.jpg" alt="Wazile" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-wazile-300x150.jpg" alt="Wazile" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-wowza-300x150.jpg" alt="Wowza" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-wowza-300x150.jpg" alt="Wowza" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-zed-300x150.jpg" alt="Zed" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-zed-300x150.jpg" alt="Zed" width="300" height="150" loading="lazy">
         </div>
 
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-safenet-300x150.jpg" alt="Safenet" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-safenet-300x150.jpg" alt="Safenet" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-smart-300x150.jpg" alt="Smart" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-smart-300x150.jpg" alt="Smart" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-smart-pit-300x150.jpg" alt="Smart Pit" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-smart-pit-300x150.jpg" alt="Smart Pit" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-tara-nood-tayo-300x150.jpg" alt="Tara Nood Tayo" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-tara-nood-tayo-300x150.jpg" alt="Tara Nood Tayo" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-transferto-300x150.jpg" alt="Transfer To" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-transferto-300x150.jpg" alt="Transfer To" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-trufidelity-300x150.jpg" alt="Trufidelity" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-trufidelity-300x150.jpg" alt="Trufidelity" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-voip-switch-300x150.jpg" alt="Voip Switch" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-voip-switch-300x150.jpg" alt="Voip Switch" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-wazile-300x150.jpg" alt="Wazile" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-wazile-300x150.jpg" alt="Wazile" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-wowza-300x150.jpg" alt="Wowza" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-wowza-300x150.jpg" alt="Wowza" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-zed-300x150.jpg" alt="Zed" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-zed-300x150.jpg" alt="Zed" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-card" src="../assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
+            <img class="img-thumbnail rounded-4 ib-shadow" src="../assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
         </div>
     </div>
 </div>
@@ -480,11 +536,11 @@
 </div>
 <div class="px-0" style="min-height: 100px"></div>
 </div>
-<div class="row multi-color-border ib-landing-bg-light" style="position: relative">
+<div class="row multi-color-border" style="position: relative">
     <div class="px-0" style="min-height: 100px"></div>
-    <div class="custom-shape-divider-top-1684910678">
+    <div class="custom-shape-divider-top-1685080178">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M649.97 0L599.91 54.12 550.03 0 0 0 0 120 1200 120 1200 0 649.97 0z" class="shape-fill"></path>
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
         </svg>
     </div>
     <div class="row py-5 h-100 " id="divCompany">
@@ -496,18 +552,20 @@
         <div class="col-8" >
             <div class="row">
                 <div class="container px-5">
-                    <h1>Our <strong><i>Company</i></strong></h1>
-                    <hr class="ib-landing-hr">
+                    <h1 class="ib-font-extrabold">Our Company</h1>
+                   <div class="col-md-5"> <hr class="ib-landing-hr"></div>
                     <p>iBayad Online Ventures, Inc. is a FinTech (Financial Technology) start-up company in the exciting field of mobile payments and e-commerce. Our company endeavors to bring innovative solutions for micro entrepreneurs and SME’s, with the purpose of empowering their businesses with technology, which will allow them to remain relevant and competitive, in their respective industries. We likewise aim to deliver beneficial financial services to the unbanked and underbanked sector of society, who remain unreached and unserved by traditional financial institutions.</p>
                     <p>iBayad is a locally registered corporation founded by Technopreneurs with the support of two other locally based technology companies: Paytyche Solutions Inc. and Mobeelity Innovations, Inc. We are likewise backed by a team of strategic foreign equity investors coming from the Information Technology, Telecommunications and Global Investment Banking Industries who believe in our endeavor to drive for innovations in the mobile payments and e-commerce space, as well as in our advocacies, to help developing-countries’ progress into a cashless society, and the financial inclusion of the bottom-of-the-pyramid.</p>
-                    <p>iBayad is about bringing the best and brightest innovations brought about by the convergence in Financial Services and Mobile Communications. Our solutions demonstrate an incremental and radical / disruptive innovation in the development of applications, processes, products or business models for the financial services and mobile communications industry. We are driven by our passion to help improve every person’s life in this current mobile commerce revolution era.</p>
-                    <p>Our mission is to accelerate the adoption and transformation of every consumer’s traditional spending behaviour from cash-centric transactions to card and mobile payments, as the standard payment format in this new information economy.</p>
-                    <p>To achieve our objectives, we are utilizing our home-grown and award winning technologies and software systems currently deployed in over 30 countries worldwide.</p>
+<!--                    <p>iBayad is about bringing the best and brightest innovations brought about by the convergence in Financial Services and Mobile Communications. Our solutions demonstrate an incremental and radical / disruptive innovation in the development of applications, processes, products or business models for the financial services and mobile communications industry. We are driven by our passion to help improve every person’s life in this current mobile commerce revolution era.</p>-->
+<!--                    <p>Our mission is to accelerate the adoption and transformation of every consumer’s traditional spending behaviour from cash-centric transactions to card and mobile payments, as the standard payment format in this new information economy.</p>-->
+<!--                    <p>To achieve our objectives, we are utilizing our home-grown and award winning technologies and software systems currently deployed in over 30 countries worldwide.</p>-->
+                    <a class="ib-link ib-font-bold hvr-forward" href="#" target="_blank">Read More <i class="bi bi-arrow-right hvr-icon"></i></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<a id="back-to-top" href="#" class="btn btn-ib-main back-to-top rounded-5 ib-shadow" role="button"><i class="bi bi-chevron-up"></i></a>
 
 <footer class="footer bg-dark">
     <div class="container-fluid pt-5">
@@ -567,12 +625,12 @@
                 </div>
 
                 <p class="text-center text-white pt-5">
-                    <strong class="text-secondary d-none d-sm-block">Follow us: </strong>
-                    <a class="px-2 link-secondary ib-link-secondary fs-4" href="https://www.facebook.com/ibayadph" target="_blank"><i class="bi bi-facebook"></i></a>
-                    <a class="px-2 link-secondary ib-link-secondary fs-4" href="https://twitter.com/ibayadph" target="_blank"><i class="bi bi-twitter"></i></a>
-                    <a class="px-2 link-secondary ib-link-secondary fs-4" href="https://www.instagram.com/ibayadph/" target="_blank"><i class="bi bi-instagram"></i></a>
-                    <a class="px-2 link-secondary ib-link-secondary fs-4" href="http://www.linkedin.com/company/ibayad" target="_blank"><i class="bi bi-linkedin"></i></a>
-                    <a class="px-2 link-secondary ib-link-secondary fs-4" href="https://www.youtube.com/channel/UCmwlUFd7S2peY7GCGpqbgNQ" target="_blank"><i class="bi bi-youtube"></i></a>
+                    <strong class="text-secondary d-none d-sm-block mb-2">Follow us: </strong>
+                    <a class="px-2 link-secondary ib-link-secondary fs-3" href="https://www.facebook.com/ibayadph" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a class="px-2 link-secondary ib-link-secondary fs-3" href="https://twitter.com/ibayadph" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a class="px-2 link-secondary ib-link-secondary fs-3" href="https://www.instagram.com/ibayadph/" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a class="px-2 link-secondary ib-link-secondary fs-3" href="http://www.linkedin.com/company/ibayad" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a class="px-2 link-secondary ib-link-secondary fs-3" href="https://www.youtube.com/channel/UCmwlUFd7S2peY7GCGpqbgNQ" target="_blank"><i class="bi bi-youtube"></i></a>
                 </p>
             </div>
         </div>
@@ -594,7 +652,5 @@
     </div>
 </footer>
 <script src="../assets/thirdparty/bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
 </body>
 </html>
