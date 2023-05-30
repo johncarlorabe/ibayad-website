@@ -101,6 +101,16 @@ strong{
 .ib-card-landing:hover{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+.ib-partner-logo-card{
+    margin: 20px 0 !important;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.ib-partner-logo-card:hover{
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow:  13px 13px 20px #e3e3e3,
+    -13px -13px 20px #ffffff;
+}
 
 .ib-link{
     color: rgba(234,56,77,1);
