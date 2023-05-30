@@ -116,7 +116,13 @@
                 });
                 let mainTxt = headerObject.header.replace('[','<strong class="tlt" style="font-style: italic;">').replace(']','</strong>');
                 mainTxt = mainTxt.replace('(','<u>').replace(')','</u>');
+                $("#mainTxt").removeClass("animate__animated animate__fadeIn");
+                $("#mainTxt").addClass("animate__animated animate__fadeOut");
+                $("#mainTxt").hide();
                 $("#mainTxt").html(headerObject?mainTxt:defaultHeader);
+                $("#mainTxt").removeClass("animate__animated animate__fadeOut");
+                $("#mainTxt").show();
+                $("#mainTxt").addClass("animate__animated animate__fadeIn");
                 $("#subTxt").html(headerObject?headerObject.subheader:defaultSubheader);
 
                 initTextillate();
@@ -311,230 +317,249 @@
 <div class="col-12 ib-landing-bg-partners" id="divPartners">
 <div class="container-fluid">
     <div class="row text-center">
-        <h1 class="ib-landing-heading ib-font-extrabold mt-5">Our Partners</h1>
-        <p class="text-dark fs-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam ultrices luctus. Mauris eu massa id ipsum suscipit ullamcorper.</p>
+    <div class="px-0" style="min-height: 100px"></div>
+        <div class="col-md-8">
+        <div class="container pt-4" id="waypoint-partners" style="width: 85%;">
+        <div class="slider my-1">
+            <div class="slide-track-1">
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-aim-global-300x150.jpg" alt="AIM Global" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-avon-300x150.jpg" alt="Avon" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-amazon-web-services-300x150.jpg" alt="Amazon Web Services" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-bancnet-300x150.jpg" alt="BancNet" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-bayad-center-1-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-bpi-globe-banko-300x150.jpg" alt="BPI BanKo" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-cutting-edge-300x150.jpg" alt="Cutting Edge" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-ecpay-300x150.jpg" alt="ECPay" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-filmon-300x150.jpg" alt="Filmon" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-gametime-300x150.jpg" alt="Gametime" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-generika-300x150.jpg" alt="Generika" width="300" height="150" loading="lazy">
+                </div>
+
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-aim-global-300x150.jpg" alt="AIM Global" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-avon-300x150.jpg" alt="Avon" width="300" height="150" loading="lazy">
+                </div>
+
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-amazon-web-services-300x150.jpg" alt="Amazon Web Services" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-bancnet-300x150.jpg" alt="BancNet" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-bayad-center-1-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-bpi-globe-banko-300x150.jpg" alt="BPI BanKo" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-cutting-edge-300x150.jpg" alt="Cutting Edge" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-ecpay-300x150.jpg" alt="ECPay" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-filmon-300x150.jpg" alt="Filmon" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-gametime-300x150.jpg" alt="Gametime" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-generika-300x150.jpg" alt="Generika" width="300" height="150" loading="lazy">
+                </div>
+            </div>
+        </div>
+        <div class="slider my-1">
+            <div class="slide-track-2">
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-ipc-300x150.jpg" alt="IPC" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-ips-300x150.jpg" alt="IPS" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-manila-jockey-club-300x150.jpg" alt="Manila Jockey" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-mobeelity-300x150.jpg" alt="Mobeelity" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-mynt-300x150.jpg" alt="Mynt" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-nets-300x150.jpg" alt="Nets" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-nexmo-300x150.jpg" alt="Nexmo" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-paymaya-300x150.jpg" alt="Paymaya" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-paypal-300x150.jpg" alt="PayPal" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-paytyche-300x150.jpg" alt="Paytyche" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-philarp-300x150.jpg" alt="Philarp" width="300" height="150" loading="lazy">
+                </div>
+
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-ipc-300x150.jpg" alt="IPC" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-ips-300x150.jpg" alt="IPS" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-manila-jockey-club-300x150.jpg" alt="Manila Jockey" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-mobeelity-300x150.jpg" alt="Mobeelity" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-mynt-300x150.jpg" alt="Mynt" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-nets-300x150.jpg" alt="Nets" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-nexmo-300x150.jpg" alt="Nexmo" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-paymaya-300x150.jpg" alt="Paymaya" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-paypal-300x150.jpg" alt="PayPal" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-paytyche-300x150.jpg" alt="Paytyche" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-philarp-300x150.jpg" alt="Philarp" width="300" height="150" loading="lazy">
+                </div>
+            </div>
+        </div>
+        <div class="slider my-1">
+            <div class="slide-track-1">
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-safenet-300x150.jpg" alt="Safenet" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-smart-300x150.jpg" alt="Smart" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-smart-pit-300x150.jpg" alt="Smart Pit" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-tara-nood-tayo-300x150.jpg" alt="Tara Nood Tayo" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-transferto-300x150.jpg" alt="Transfer To" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-trufidelity-300x150.jpg" alt="Trufidelity" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-voip-switch-300x150.jpg" alt="Voip Switch" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-wazile-300x150.jpg" alt="Wazile" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-wowza-300x150.jpg" alt="Wowza" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-zed-300x150.jpg" alt="Zed" width="300" height="150" loading="lazy">
+                </div>
+
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-safenet-300x150.jpg" alt="Safenet" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-smart-300x150.jpg" alt="Smart" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-smart-pit-300x150.jpg" alt="Smart Pit" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-tara-nood-tayo-300x150.jpg" alt="Tara Nood Tayo" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-transferto-300x150.jpg" alt="Transfer To" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-trufidelity-300x150.jpg" alt="Trufidelity" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-voip-switch-300x150.jpg" alt="Voip Switch" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-wazile-300x150.jpg" alt="Wazile" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-wowza-300x150.jpg" alt="Wowza" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-zed-300x150.jpg" alt="Zed" width="300" height="150" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="col-md-4 text-start">
+            <div class="row mx-4">
+                <h1 class="ib-landing-heading ib-font-extrabold mt-5">Our Partners</h1>
+                <p class="text-dark fs-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam ultrices luctus. Mauris eu massa id ipsum suscipit ullamcorper.</p>
+                <!--<a class="ib-link text-primary ib-font-bold hvr-forward" href="#" target="_blank">Explore partners <i class="bi bi-arrow-right hvr-icon"></i></a>-->
+                <div class="col">
+                    <a class="ib-link btn-explore-partners"  href="#" target="_blank">
+                        <span>Learn More</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="row border-5">
-<div class="container rounded-4 ib-landing-bg-blue pt-4 ib-shadow" id="waypoint-partners" style="width: 85%;">
-<div class="slider my-1">
-    <div class="slide-track-1">
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-aim-global-300x150.jpg" alt="AIM Global" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-avon-300x150.jpg" alt="Avon" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-amazon-web-services-300x150.jpg" alt="Amazon Web Services" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-bancnet-300x150.jpg" alt="BancNet" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-bayad-center-1-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-bpi-globe-banko-300x150.jpg" alt="BPI BanKo" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-cutting-edge-300x150.jpg" alt="Cutting Edge" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-ecpay-300x150.jpg" alt="ECPay" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-filmon-300x150.jpg" alt="Filmon" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-gametime-300x150.jpg" alt="Gametime" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-generika-300x150.jpg" alt="Generika" width="300" height="150" loading="lazy">
-        </div>
 
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-aim-global-300x150.jpg" alt="AIM Global" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-avon-300x150.jpg" alt="Avon" width="300" height="150" loading="lazy">
-        </div>
-
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-amazon-web-services-300x150.jpg" alt="Amazon Web Services" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-bancnet-300x150.jpg" alt="BancNet" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-bayad-center-1-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-bpi-globe-banko-300x150.jpg" alt="BPI BanKo" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-cutting-edge-300x150.jpg" alt="Cutting Edge" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-ecpay-300x150.jpg" alt="ECPay" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-filmon-300x150.jpg" alt="Filmon" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-gametime-300x150.jpg" alt="Gametime" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-generika-300x150.jpg" alt="Generika" width="300" height="150" loading="lazy">
-        </div>
-    </div>
-</div>
-<div class="slider my-1">
-    <div class="slide-track-2">
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-ipc-300x150.jpg" alt="IPC" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-ips-300x150.jpg" alt="IPS" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-manila-jockey-club-300x150.jpg" alt="Manila Jockey" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-mobeelity-300x150.jpg" alt="Mobeelity" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-mynt-300x150.jpg" alt="Mynt" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-nets-300x150.jpg" alt="Nets" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-nexmo-300x150.jpg" alt="Nexmo" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-paymaya-300x150.jpg" alt="Paymaya" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-paypal-300x150.jpg" alt="PayPal" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-paytyche-300x150.jpg" alt="Paytyche" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-philarp-300x150.jpg" alt="Philarp" width="300" height="150" loading="lazy">
-        </div>
-
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-ipc-300x150.jpg" alt="IPC" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-ips-300x150.jpg" alt="IPS" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-manila-jockey-club-300x150.jpg" alt="Manila Jockey" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-mobeelity-300x150.jpg" alt="Mobeelity" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-mynt-300x150.jpg" alt="Mynt" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-nets-300x150.jpg" alt="Nets" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-nexmo-300x150.jpg" alt="Nexmo" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-paymaya-300x150.jpg" alt="Paymaya" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-paypal-300x150.jpg" alt="PayPal" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-paytyche-300x150.jpg" alt="Paytyche" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-philarp-300x150.jpg" alt="Philarp" width="300" height="150" loading="lazy">
-        </div>
-    </div>
-</div>
-<div class="slider my-1">
-    <div class="slide-track-1">
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-safenet-300x150.jpg" alt="Safenet" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-smart-300x150.jpg" alt="Smart" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-smart-pit-300x150.jpg" alt="Smart Pit" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-tara-nood-tayo-300x150.jpg" alt="Tara Nood Tayo" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-transferto-300x150.jpg" alt="Transfer To" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-trufidelity-300x150.jpg" alt="Trufidelity" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-voip-switch-300x150.jpg" alt="Voip Switch" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-wazile-300x150.jpg" alt="Wazile" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-wowza-300x150.jpg" alt="Wowza" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-zed-300x150.jpg" alt="Zed" width="300" height="150" loading="lazy">
-        </div>
-
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-safenet-300x150.jpg" alt="Safenet" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-smart-300x150.jpg" alt="Smart" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-smart-pit-300x150.jpg" alt="Smart Pit" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-tara-nood-tayo-300x150.jpg" alt="Tara Nood Tayo" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-transferto-300x150.jpg" alt="Transfer To" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-trufidelity-300x150.jpg" alt="Trufidelity" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-voip-switch-300x150.jpg" alt="Voip Switch" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-wazile-300x150.jpg" alt="Wazile" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-wowza-300x150.jpg" alt="Wowza" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-zed-300x150.jpg" alt="Zed" width="300" height="150" loading="lazy">
-        </div>
-        <div class="slide">
-            <img class="img-thumbnail rounded-4 ib-shadow" src="./assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
-        </div>
-    </div>
-</div>
-</div>
 </div>
 <div class="px-0" style="min-height: 100px"></div>
 </div>

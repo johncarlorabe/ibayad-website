@@ -103,13 +103,11 @@ strong{
 }
 .ib-partner-logo-card{
     margin: 20px 0 !important;
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    transition: all 0.3s;
 }
 .ib-partner-logo-card:hover{
-    border-radius: 5px;
-    background: #ffffff;
-    box-shadow:  13px 13px 20px #e3e3e3,
-    -13px -13px 20px #ffffff;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    transform: scale(.95);
 }
 
 .ib-link{
@@ -226,6 +224,65 @@ strong{
 }
 
 .btn-learn-more:active {
+    transform: scale(0.95);
+}
+
+
+
+
+
+.btn-explore-partners {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+}
+
+.btn-explore-partners:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 30px;
+    background: #BBDEFB;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+}
+
+.btn-explore-partners span {
+    position: relative;
+    font-weight: 800;
+    font-family: 'Nunito Sans',sans-serif;
+    color: #1565C0;
+}
+
+.btn-explore-partners svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #1565C0;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.btn-explore-partners:hover:before {
+    width: 100%;
+    background: #BBDEFB;
+}
+
+.btn-explore-partners:hover svg {
+    transform: translateX(0);
+}
+
+.btn-explore-partners:active {
     transform: scale(0.95);
 }
 

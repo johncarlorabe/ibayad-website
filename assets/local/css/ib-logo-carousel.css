@@ -19,7 +19,7 @@
 .slider:before {
     background: linear-gradient(
             to right,
-            #0277BD 0%,
+            #E3F2FD 0%,
             hsla(0, 0%, 100%, 0) 50%
     );
     content: "";
