@@ -56,10 +56,21 @@ strong{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.ib-heading-dark{
+    color: #051934;
+}
 
 .ib-landing-hr{
     border:none;
     background-image: linear-gradient(117deg, rgba(238,9,121,1) 0%, rgba(255,106,0,1) 99%);
+    opacity: 1;
+    width: 20%;
+    height: 5px;
+
+}
+.ib-landing-hr-partners{
+    border:none;
+    background-image: linear-gradient(113deg, rgba(13,71,161,1) 0%, rgba(21,101,192,1) 99%);
     opacity: 1;
     width: 20%;
     height: 5px;

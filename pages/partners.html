@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iBayad Online Ventures</title>
+    <link href="../assets/thirdparty/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/thirdparty/bootstrap-icons-1.9.1/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/local/css/ib-styling.css" rel="stylesheet">
+    <link href="../assets/local/css/hover-animations.css" rel="stylesheet">
+    <link href="../assets/local/css/ib-svg-dividers.css" rel="stylesheet">
+    <!--    Added for TestillateJs-->
+    <link href="../assets/thirdparty/animate.css" rel="stylesheet">
+    <!--    -->
+    <link href="../assets/thirdparty/animate-v4.1.1.css" rel="stylesheet">
+    <link href="../assets/local/css/ib-logo-carousel.css" rel="stylesheet">
+    <link href="../assets/local/css/ib-splide-carousel.css" rel="stylesheet">
+    <link href="../assets/local/css/ib-navbar-toggle.css" rel="stylesheet">
+    <link href="../assets/thirdparty/splide-4.1.3/dist/css/splide-core.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo/ib-logo-only-white.png">
+
+    <script src="../assets/thirdparty/jquery-3.7.0.min.js"></script>
+    <script src="../assets/thirdparty/jquery.fittext.js"></script>
+    <script src="../assets/thirdparty/jquery.lettering.js"></script>
+    <script src="../assets/thirdparty/jquery.textillate.js"></script>
+    <script src="../assets/thirdparty/isotope.pkgd.min.js"></script>
+
+    <script src="../assets/thirdparty/imakewebthings-waypoints-34d9f6d/lib/noframework.waypoints.min.js"></script>
+    <script src="../assets/thirdparty/splide-4.1.3/dist/js/splide.min.js"></script>
+    <style>
+        .ib-partner-logo-card{
+            margin: 10px !important;
+        }
+    </style>
+</head>
+<body class="body-bg">
+<script type="application/javascript">
+    $(document).ready(function() {
+        //partners div animation
+        var waypointPartners = new Waypoint({
+            element: document.getElementById('waypoint-partners'),
+            handler: function (direction) {
+                if(direction=="down"){
+                    $("#waypoint-partners").addClass("animate__animated animate__fadeIn");
+                } else {
+                    $("#waypoint-partners").removeClass("animate__animated animate__fadeIn");
+                }
+            },
+            offset:'85%'
+        });
+
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        $('#back-to-top').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        });
+
+        $('.grid').isotope({
+            // options
+            itemSelector: '.grid-item',
+            layoutMode: 'fitRows'
+        });
+    });
+
+</script>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent">
+    <div class="container-fluid">
+        <a class="navbar-brand px-2" href="../index.html">
+            <img src="../assets/images/logo/ib-logo-w-text-black.png" alt="Bootstrap" height="45">
+        </a>
+        <button class="navbar-toggler border-0 d-flex d-lg-none flex-column justify-content-around collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="toggler-icon top-bar"></span>
+            <span class="toggler-icon middle-bar"></span>
+            <span class="toggler-icon bottom-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent"> <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item hvr-underline-from-center">
+                <a class="nav-link" aria-current="page" href="#divProducts">Products</a>
+            </li>
+            <li class="nav-item hvr-underline-from-center">
+                <a class="nav-link" href="#divPartners">Partners</a>
+            </li>
+            <li class="nav-item hvr-underline-from-center">
+                <a class="nav-link" href="#divCompany">Our Company</a>
+            </li>
+            <li class="nav-item hvr-underline-from-center">
+                <a class="nav-link" href="#divContact">Contact</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row ib-landing-bg-partners px-3 px-md-5 pt-5">
+        <div class="col-md-9">
+            <h1 class="ib-heading-dark ib-font-extrabold mt-5">Partners</h1>
+            <div class="col-md-5"> <hr class="ib-landing-hr-partners"></div>
+            <p class="text-dark fs-5 mb-5 col-md-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam ultrices luctus. Mauris eu massa id ipsum suscipit ullamcorper.</p>
+        </div>
+        <div class="col-md-3 d-none d-sm-block">
+            <div class="row d-flex justify-content-center">
+                <img class="img-fluid rounded-circle bg-primary px-0" style="width: 250px;height: auto" src="../assets/images/objects/handshake.jpg">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="col-12 ib-landing-bg-partners" id="divPartners">
+    <div class="px-0 d-none d-sm-block" style="min-height: 80px"></div>
+    <div class="container py-4 grid d-flex justify-content-center" id="waypoint-partners">
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-aim-global-300x150.jpg" alt="AIM Global" width="300" height="150" loading="lazy">
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-avon-300x150.jpg" alt="Avon" width="300" height="150" loading="lazy">
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-amazon-web-services-300x150.jpg" alt="Amazon Web Services" width="300" height="150" loading="lazy">
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-bancnet-300x150.jpg" alt="BancNet" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-bayad-center-1-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-bpi-globe-banko-300x150.jpg" alt="BPI BanKo" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-cutting-edge-300x150.jpg" alt="Cutting Edge" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-ecpay-300x150.jpg" alt="ECPay" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-filmon-300x150.jpg" alt="Filmon" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-gametime-300x150.jpg" alt="Gametime" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-generika-300x150.jpg" alt="Generika" width="300" height="150" loading="lazy">
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-ipc-300x150.jpg" alt="IPC" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-ips-300x150.jpg" alt="IPS" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-manila-jockey-club-300x150.jpg" alt="Manila Jockey" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-mobeelity-300x150.jpg" alt="Mobeelity" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-mynt-300x150.jpg" alt="Mynt" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-nets-300x150.jpg" alt="Nets" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-nexmo-300x150.jpg" alt="Nexmo" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-paymaya-300x150.jpg" alt="Paymaya" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-paypal-300x150.jpg" alt="PayPal" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-paytyche-300x150.jpg" alt="Paytyche" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-philarp-300x150.jpg" alt="Philarp" width="300" height="150" loading="lazy">
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-remitbox-300x150.jpg" alt="Remitbox" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-safenet-300x150.jpg" alt="Safenet" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-smart-300x150.jpg" alt="Smart" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-smart-pit-300x150.jpg" alt="Smart Pit" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-tara-nood-tayo-300x150.jpg" alt="Tara Nood Tayo" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-transferto-300x150.jpg" alt="Transfer To" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-trufidelity-300x150.jpg" alt="Trufidelity" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-voip-switch-300x150.jpg" alt="Voip Switch" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-wazile-300x150.jpg" alt="Wazile" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-wowza-300x150.jpg" alt="Wowza" width="300" height="150" loading="lazy">
+
+        <img class="grid-item img-thumbnail ib-shadow ib-partner-logo-card my-0" src="../assets/images/partners/partners-logo-zed-300x150.jpg" alt="Zed" width="300" height="150" loading="lazy">
+
+
+    </div>
+</div>
+
+<a id="back-to-top" href="#" class="btn btn-ib-main back-to-top rounded-5 ib-shadow" role="button"><i class="bi bi-chevron-up"></i></a>
+
+<footer class="footer bg-dark">
+    <div class="container-fluid pt-5">
+        <div class="row px-5">
+            <div class="col-md-4 mt-3" id="divContact">
+                <p class="text-light">
+                    <strong>We want to hear from you!</strong><br>
+                    Feel free to contact us with the form below
+                </p>
+                <form class="" autocomplete="off">
+                    <div class="mb-3">
+                        <input type="text" class="form-control ib-form-control-light" id="name" required>
+                        <label class="text-secondary" for="name">Name</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control ib-form-control-light" id="email" placeholder="" required>
+                        <label class="text-secondary" for="email">Email address</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="tel" class="form-control ib-form-control-light" id="msisdn" placeholder="" required>
+                        <label class="text-secondary" for="msisdn">Phone Number</label>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control ib-form-control-light" rows="3" style="resize: none;" placeholder="" id="message" required></textarea>
+                        <label class="text-secondary" for="message">Message</label>
+                    </div>
+                    <div class="col-12">
+                        <button class="text-light btn btn-ib-main" type="submit">Submit form</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5 mt-3">
+                <p class="text-light">
+                    <strong>Corporate Head Office:</strong><br>
+                    19th Floor Marco Polo Ortigas Manila Sapphire Road, <br>Ortigas Centre, Pasig City, Manila, 1600 Philippines
+                </p>
+                <iframe class="rounded-1 border-danger border-5 d-none d-sm-block w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.202946528677!2d121.06313949999999!3d14.5875086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c810a3ceb873%3A0x6999036523327d54!2siBayad%20Online%20Ventures%20Inc.!5e0!3m2!1sen!2sph!4v1684312450882!5m2!1sen!2sph" width="550" height="287" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-md-3 mt-3 border-start border-secondary border-2">
+                <div class="mx-2">
+                    <p class="mb-4">
+                        <strong class="text-light">Products</strong><br>
+                        <a class="link-light ib-link-secondary link-underline-opacity-0" href="http://www.solb.ph/" target="_blank">solb!</a><br>
+                        <a class="link-light ib-link-secondary link-underline-opacity-0" href="http://www.migrantlifeline.com/" target="_blank">miLine</a><br>
+                        <a class="link-light ib-link-secondary link-underline-opacity-0" href="http://www.migrantlifeline.com/" target="_blank">ElecTraNet Mgr Mk2</a>
+                    </p>
+                    <p class="mb-4">
+                        <strong><a class="link-light link-underline-opacity-0" href="http://www.solb.ph/" target="_blank">Partners</a></strong><br>
+                    </p>
+                    <p class="mb-4">
+                        <strong class="text-light">Company</strong><br>
+                        <a class="link-light ib-link-secondary link-underline-opacity-0" href="http://www.solb.ph/" target="_blank">News</a><br>
+                        <a class="link-light ib-link-secondary link-underline-opacity-0" href="http://www.solb.ph/" target="_blank">About Us</a><br>
+                        <a class="link-light ib-link-secondary link-underline-opacity-0" href="http://www.migrantlifeline.com/" target="_blank">Careers</a><br>
+                        <a class="link-light ib-link-secondary link-underline-opacity-0" href="http://www.migrantlifeline.com/" target="_blank">Contact Us</a>
+                    </p>
+                </div>
+
+                <p class="text-center text-white pt-5">
+                    <strong class="text-secondary d-none d-sm-block mb-2">Follow us: </strong>
+                    <a class="px-2 link-secondary ib-link-secondary fs-3" href="https://www.facebook.com/ibayadph" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a class="px-2 link-secondary ib-link-secondary fs-3" href="https://twitter.com/ibayadph" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a class="px-2 link-secondary ib-link-secondary fs-3" href="https://www.instagram.com/ibayadph/" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a class="px-2 link-secondary ib-link-secondary fs-3" href="http://www.linkedin.com/company/ibayad" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a class="px-2 link-secondary ib-link-secondary fs-3" href="https://www.youtube.com/channel/UCmwlUFd7S2peY7GCGpqbgNQ" target="_blank"><i class="bi bi-youtube"></i></a>
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center px-5 pt-4">
+            <div class="col-md-5 d-none d-sm-block">
+                <hr class="border border-light border-1">
+            </div>
+            <div class="col-md-2 d-flex justify-content-center px-0">
+                <img class="img-fluid" src="../assets/images/logo/ib-logo-w-text-white.png" style="width: 115px;opacity: .8">
+            </div>
+            <div class="col-md-5 d-none d-sm-block">
+                <hr class="border border-light border-1">
+            </div>
+        </div>
+
+        <div class="row text-white d-flex justify-content-center pt-1">
+            <p class="text-center pt-2 text-secondary">Copyright &copy; 2023 iBayad Online Ventures, Inc. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+<script src="../assets/thirdparty/bootstrap-5.3.0-alpha3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
