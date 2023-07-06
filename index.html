@@ -25,6 +25,11 @@
     <script src="./assets/thirdparty/jquery.textillate.js"></script>
     <script src="./assets/thirdparty/isotope.pkgd.min.js"></script>
 
+
+    <script src="./assets/thirdparty/js/sha256.js"></script>
+    <script src="./assets/thirdparty/js/enc-base64-min.js"></script>
+
+
     <script src="./assets/thirdparty/imakewebthings-waypoints-34d9f6d/lib/noframework.waypoints.min.js"></script>
     <script src="./assets/thirdparty/splide-4.1.3/dist/js/splide.min.js"></script>
     <style>
@@ -37,6 +42,13 @@
     var defaultHeader = '<strong class="tlt" style="font-style: italic"><i>Transforming</i></strong> the way you pay';
     var defaultSubheader = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
     $(document).ready(function() {
+
+        let str = 'Qwerty12345';
+        let token = '1909351183649e40a6962941.14663076';
+
+        console.log("enc 0 "+CryptoJS.SHA256(CryptoJS.SHA256(str).toString(CryptoJS.enc.Base64)+token).toString(CryptoJS.enc.Base64));
+        console.log("enc 1 "+CryptoJS.SHA256(str).toString(CryptoJS.enc.Base64));
+
         $("#mainTxt").html(defaultHeader);
         $("#subTxt").html(defaultSubheader);
         initTextillate();
@@ -320,6 +332,9 @@
             <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-avon-300x150.jpg" alt="Avon" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
+            <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-ghi-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
+        </div>
+        <div class="slide">
             <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-amazon-web-services-300x150.jpg" alt="Amazon Web Services" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
@@ -353,7 +368,9 @@
         <div class="slide">
             <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-avon-300x150.jpg" alt="Avon" width="300" height="150" loading="lazy">
         </div>
-
+        <div class="slide">
+            <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-ghi-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
+        </div>
         <div class="slide">
             <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-amazon-web-services-300x150.jpg" alt="Amazon Web Services" width="300" height="150" loading="lazy">
         </div>
@@ -407,6 +424,9 @@
             <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-nexmo-300x150.jpg" alt="Nexmo" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
+            <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-makati-city-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
+        </div>
+        <div class="slide">
             <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-paymaya-300x150.jpg" alt="Paymaya" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
@@ -439,6 +459,9 @@
         </div>
         <div class="slide">
             <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-nexmo-300x150.jpg" alt="Nexmo" width="300" height="150" loading="lazy">
+        </div>
+        <div class="slide">
+            <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-makati-city-300x150.jpg" alt="Bayad Center" width="300" height="150" loading="lazy">
         </div>
         <div class="slide">
             <img class="img-thumbnail rounded-4 ib-shadow ib-partner-logo-card" src="./assets/images/partners/partners-logo-paymaya-300x150.jpg" alt="Paymaya" width="300" height="150" loading="lazy">
