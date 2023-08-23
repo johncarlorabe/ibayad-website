@@ -26,8 +26,8 @@
     <script src="./assets/thirdparty/isotope.pkgd.min.js"></script>
 
 
-    <script src="./assets/thirdparty/js/sha256.js"></script>
-    <script src="./assets/thirdparty/js/enc-base64-min.js"></script>
+    <!--<script src="./assets/thirdparty/js/sha256.js"></script>-->
+    <!--<script src="./assets/thirdparty/js/enc-base64-min.js"></script>-->
 
 
     <script src="./assets/thirdparty/imakewebthings-waypoints-34d9f6d/lib/noframework.waypoints.min.js"></script>
@@ -43,11 +43,11 @@
     var defaultSubheader = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
     $(document).ready(function() {
 
-        let str = 'Qwerty12345';
-        let token = '1909351183649e40a6962941.14663076';
-
-        console.log("enc 0 "+CryptoJS.SHA256(CryptoJS.SHA256(str).toString(CryptoJS.enc.Base64)+token).toString(CryptoJS.enc.Base64));
-        console.log("enc 1 "+CryptoJS.SHA256(str).toString(CryptoJS.enc.Base64));
+//        let str = 'Qwerty12345';
+//        let token = '1909351183649e40a6962941.14663076';
+//
+//        console.log("enc 0 "+CryptoJS.SHA256(CryptoJS.SHA256(str).toString(CryptoJS.enc.Base64)+token).toString(CryptoJS.enc.Base64));
+//        console.log("enc 1 "+CryptoJS.SHA256(str).toString(CryptoJS.enc.Base64));
 
         $("#mainTxt").html(defaultHeader);
         $("#subTxt").html(defaultSubheader);
